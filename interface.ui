@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>543</width>
-    <height>499</height>
+    <width>569</width>
+    <height>492</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -106,7 +106,10 @@
       </widget>
      </item>
      <item row="3" column="0">
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="bt_act_des">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="text">
         <string>Activar/Desactivar</string>
        </property>
@@ -140,7 +143,7 @@
      <rect>
       <x>10</x>
       <y>200</y>
-      <width>531</width>
+      <width>541</width>
       <height>121</height>
      </rect>
     </property>
@@ -151,9 +154,12 @@
      <enum>QFrame::Raised</enum>
     </property>
     <widget class="QDial" name="dial_1">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
-       <x>460</x>
+       <x>470</x>
        <y>20</y>
        <width>61</width>
        <height>81</height>
@@ -253,6 +259,9 @@
      </property>
     </widget>
     <widget class="QLabel" name="lb_est_resistencia">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>240</x>
@@ -279,7 +288,7 @@
      <rect>
       <x>10</x>
       <y>320</y>
-      <width>531</width>
+      <width>541</width>
       <height>121</height>
      </rect>
     </property>
@@ -290,6 +299,9 @@
      <enum>QFrame::Raised</enum>
     </property>
     <widget class="QDial" name="dial_2">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>460</x>
@@ -420,7 +432,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>543</width>
+     <width>569</width>
      <height>21</height>
     </rect>
    </property>
@@ -435,7 +447,7 @@
     <property name="title">
      <string>Soporte</string>
     </property>
-    <addaction name="actionAcerca_de_nosotrol"/>
+    <addaction name="actionAcerca"/>
    </widget>
    <addaction name="menuPrincipal"/>
    <addaction name="menuAyuda"/>
@@ -450,9 +462,9 @@
     <string>Estadisticas</string>
    </property>
   </action>
-  <action name="actionAcerca_de_nosotrol">
+  <action name="actionAcerca">
    <property name="text">
-    <string>Acerca de nosotrol</string>
+    <string>Acerca de nosotros</string>
    </property>
   </action>
  </widget>
