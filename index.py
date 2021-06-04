@@ -7,6 +7,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog, QFileDialog
 from interface import Ui_ControlTanques
 from PASSWORD import Ui_ClaveAdmin
 from estadisticas import Ui_Estadisticas
+from acerca import Ui_MainWindow
 
 # Application Class
 class Application(QMainWindow, Ui_ControlTanques):
@@ -54,31 +55,159 @@ class Application(QMainWindow, Ui_ControlTanques):
             #Charge MainWindow 
             self.setupUi(self)
             # uic.loadUi("acerca.ui", self)
-            self.setWindowTitle("PASSWORD")
 
-    def fn_admin(self):
-        def __init__(self, parent= None):
-            #QMainWindow Start
-            super().__init__()
-            QMainWindow.__init__(self,parent)
-            #Charge MainWindow 
-            self.setupUi(self)
-            # uic.loadUi("acerca.ui", self)
             self.setWindowTitle("PASSWORD")
+        
+    def fn_admin(self):    
+        self.analisys_frame = Admin(None)
+        self.analisys_frame.show()
 
     def fn_estadisticas(self):
-        
-        def __init__(self, parent= None):
-            #QMainWindow Start
-            super().__init__()
-            QMainWindow.__init__(self,parent)
-            #Charge MainWindow 
-            self.setupUi(self)
-            # uic.loadUi("acerca.ui", self)
-            self.setWindowTitle("Estadisticas")
+        self.analisys_frame = Estadisticas(None)
+        self.analisys_frame.show()
 
     def fn_about(self):
-         pass
+        self.analisys_frame = About(None)
+        self.analisys_frame.show()
+
+class Admin(QMainWindow, Ui_ClaveAdmin):
+    
+    def __init__(self, parent= None):
+        #QMainWindow Start
+        super().__init__()
+        QMainWindow.__init__(self,parent)
+        #Charge MainWindow 
+        self.setupUi(self)
+        # uic.loadUi("acerca.ui", self)
+        self.setWindowTitle("PASSWORD")
+        self.bt_1.clicked.connect(self.fn_num_1)
+        self.bt_2.clicked.connect(self.fn_num_2)
+        self.bt_3.clicked.connect(self.fn_num_3)
+        self.bt_4.clicked.connect(self.fn_num_4)
+        self.bt_5.clicked.connect(self.fn_num_5)
+        self.bt_6.clicked.connect(self.fn_num_6)
+        self.bt_7.clicked.connect(self.fn_num_7)
+        self.bt_8.clicked.connect(self.fn_num_8)
+        self.bt_9.clicked.connect(self.fn_num_9)
+        self.bt_0.clicked.connect(self.fn_num_0)
+        self.bt_clear.clicked.connect(self.fn_clear)
+        self.bt_ok.clicked.connect(self.fn_ok)
+        self.bt_borrar.clicked.connect(self.fn_borrar)
+    
+    def char_len(self,password, char):
+        lenght = len(password)
+        if lenght <= 6:
+            new_pass = str(password)+char
+            return new_pass
+        else:
+            return password
+
+    def fn_num_1(self):
+        self.password =  self.lineEdit.text()
+        new_pass = self.char_len(self.password, "1")
+        self.lineEdit.setText(new_pass)
+
+    def fn_num_2(self):
+        self.password =  self.lineEdit.text()
+        new_pass = self.char_len(self.password, "2")
+        self.lineEdit.setText(new_pass)
+    
+    def fn_num_3(self):
+        self.password =  self.lineEdit.text()
+        new_pass = self.char_len(self.password, "3")
+        self.lineEdit.setText(new_pass)
+
+    def fn_num_4(self):
+        self.password =  self.lineEdit.text()
+        new_pass = self.char_len(self.password, "4")
+        self.lineEdit.setText(new_pass)
+
+    def fn_num_5(self):
+        self.password =  self.lineEdit.text()
+        new_pass = self.char_len(self.password, "5")
+        self.lineEdit.setText(new_pass)
+
+    def fn_num_6(self):
+        self.password =  self.lineEdit.text()
+        new_pass = self.char_len(self.password, "6")
+        self.lineEdit.setText(new_pass)
+
+    def fn_num_7(self):
+        self.password =  self.lineEdit.text()
+        new_pass = self.char_len(self.password, "7")
+        self.lineEdit.setText(new_pass)
+
+    def fn_num_8(self):
+        self.password =  self.lineEdit.text()
+        new_pass = self.char_len(self.password, "8")
+        self.lineEdit.setText(new_pass)
+
+    def fn_num_9(self):
+        self.password =  self.lineEdit.text()
+        new_pass = self.char_len(self.password, "9")
+        self.lineEdit.setText(new_pass)
+
+    def fn_num_0(self):
+        self.password =  self.lineEdit.text()
+        new_pass = self.char_len(self.password, "0")
+        self.lineEdit.setText(new_pass)
+
+    def fn_clear(self):
+        self.lineEdit.setText("")
+
+    def fn_borrar(self):
+        self.password =  self.lineEdit.text()
+        lenght = len(self.password)-1
+        list_pass = list(self.password)
+        new_pass = ""
+        for x in range(0,lenght):
+            new_pass = new_pass + str(list_pass[x])
+        self.lineEdit.setText(new_pass)
+
+    def fn_ok(self):
+        self.password =  self.lineEdit.text()
+        num = int(self.lb_try_number.text())
+        if self.password == "523478":
+            self.lb_state.setText("CORRECTO")
+        else:
+            if num <= 2:
+               self.lb_state.setText("ERROR") 
+               self.lb_try_number.setText(str(num+1))
+            else: 
+                self.bt_1.setEnabled(False)
+                self.bt_2.setEnabled(False)
+                self.bt_3.setEnabled(False)
+                self.bt_4.setEnabled(False)
+                self.bt_5.setEnabled(False)
+                self.bt_6.setEnabled(False)
+                self.bt_7.setEnabled(False)
+                self.bt_8.setEnabled(False)
+                self.bt_9.setEnabled(False)
+                self.bt_0.setEnabled(False)
+                self.bt_clear.setEnabled(False)
+                self.bt_ok.setEnabled(False)
+                self.bt_borrar.setEnabled(False)
+
+class Estadisticas(QMainWindow, Ui_Estadisticas):        
+    def __init__(self, parent= None):
+        #QMainWindow Start
+        super().__init__()
+        QMainWindow.__init__(self,parent)
+        #Charge MainWindow 
+        self.setupUi(self)
+        # uic.loadUi("acerca.ui", self)
+        self.setWindowTitle("Estadisticas")
+
+    
+class About(QMainWindow, Ui_MainWindow):   
+    def __init__(self, parent= None):
+        #QMainWindow Start
+        super().__init__()
+        QMainWindow.__init__(self,parent)
+        #Charge MainWindow 
+        self.setupUi(self)
+        # uic.loadUi("acerca.ui", self)
+        self.setWindowTitle("Acerca de nosotros")
 
 
 if __name__ == "__main__": 
