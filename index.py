@@ -169,6 +169,7 @@ class Admin(QMainWindow, Ui_ClaveAdmin):
         num = int(self.lb_try_number.text())
         if self.password == "523478":
             self.lb_state.setText("CORRECTO")
+            _Application.bt_
         else:
             if num <= 1:
                self.lb_state.setText("ERROR") 

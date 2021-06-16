@@ -10,7 +10,6 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 class Ui_Estadisticas(object):
     def setupUi(self, Estadisticas):
         Estadisticas.setObjectName("Estadisticas")
