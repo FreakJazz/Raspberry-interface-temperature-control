@@ -37,38 +37,37 @@ class Application(QMainWindow, Ui_ControlTanques):
         self.dial_2.setMinimum(35)
         self.dial_2.setMaximum(65)
         self.dial_2.setValue(40)
-        # self.dial_1.disable()
-        # self.dial_2.disable()
-        #self.bt_act_des.disable()
+        self.dial_1.valueChanged.connect(self.updateLCD_set_1)
+        self.dial_2.valueChanged.connect(self.updateLCD_set_2)
         
         # self.actionSelecci_n.triggered.connect(self.fn_select)
         # self.actionSalirr.triggered.connect(self.fn_exit)
         # self.actionAcerca_de_Nosotros.triggered.connect(self.fn_about)
+    def updateLCD_set_1(self, event):
+        self.lcd_temp_set_1.display(event)
 
+    def updateLCD_set_2(self, event):
+        self.lcd_temp_set_2.display(event)
 
     def fn_configuration_temp(self):
     
-        def __init__(self, parent= None):
-            #QMainWindow Start
-            super().__init__()
-            QMainWindow.__init__(self,parent)
-            #Charge MainWindow 
-            self.setupUi(self)
-            # uic.loadUi("acerca.ui", self)
+        self.mode_password = False
+        self.password_frame = Admin(None)
+        self.password_frame.show()
 
-            self.setWindowTitle("PASSWORD")
         
     def fn_admin(self):    
-        self.analisys_frame = Admin(None)
-        self.analisys_frame.show()
+        self.mode_password = True
+        self.password_frame = Admin(None)
+        self.password_frame.show()
 
     def fn_estadisticas(self):
-        self.analisys_frame = Estadisticas(None)
-        self.analisys_frame.show()
+        self.estadisticas_frame = Estadisticas(None)
+        self.estadisticas_frame.show()
 
     def fn_about(self):
-        self.analisys_frame = About(None)
-        self.analisys_frame.show()
+        self.about_frame = About(None)
+        self.about_frame.show()
 
 class Admin(QMainWindow, Ui_ClaveAdmin):
     
@@ -167,9 +166,15 @@ class Admin(QMainWindow, Ui_ClaveAdmin):
     def fn_ok(self):
         self.password =  self.lineEdit.text()
         num = int(self.lb_try_number.text())
-        if self.password == "523478":
+        if self.password == "523478" and Application.mode_password == True:
             self.lb_state.setText("CORRECTO")
-            _Application.bt_
+            Application.bt_act_des.setEnabled(True)
+            self.close()
+        elif self.password == "984562" and Application.mode_password == False:
+            self.lb_state.setText("CORRECTO")
+            Application.dial_1.setEnabled(True)
+            Application.dial_2.setEnabled(True)
+            self.close()
         else:
             if num <= 1:
                self.lb_state.setText("ERROR") 
@@ -215,6 +220,6 @@ if __name__ == "__main__":
    dirname = os.path.dirname(PyQt5.__file__)
    plugin_path = os.path.join(dirname, 'plugins', 'platforms')
    app = QApplication(sys.argv)        #App Inicialization
-   _Application = Application()        #Object Class
-   _Application.show()                 #Show Window
+   Application = Application()        #Object Class
+   Application.show()                 #Show Window
    app.exec_()                         #Execute Aplication
