@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_ControlTanques(object):
     def setupUi(self, ControlTanques):
         ControlTanques.setObjectName("ControlTanques")
-        ControlTanques.resize(569, 492)
+        ControlTanques.resize(569, 476)
         self.centralwidget = QtWidgets.QWidget(ControlTanques)
         self.centralwidget.setObjectName("centralwidget")
         self.line = QtWidgets.QFrame(self.centralwidget)

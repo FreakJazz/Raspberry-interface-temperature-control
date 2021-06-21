@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>325</width>
-    <height>317</height>
+    <height>386</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -44,7 +44,7 @@
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>250</y>
+      <y>310</y>
       <width>131</width>
       <height>31</height>
      </rect>
@@ -57,9 +57,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>100</y>
+      <y>90</y>
       <width>301</width>
-      <height>131</height>
+      <height>211</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -68,36 +68,14 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="label_2">
+    <widget class="QGraphicsView" name="graphicsView_2">
      <property name="geometry">
       <rect>
        <x>20</x>
        <y>10</y>
-       <width>261</width>
-       <height>21</height>
+       <width>256</width>
+       <height>192</height>
       </rect>
-     </property>
-     <property name="text">
-      <string>SUNLIFE </string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>30</y>
-       <width>261</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Autonomia y Seguridad Energética</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </widget>

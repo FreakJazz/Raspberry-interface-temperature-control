@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(325, 317)
+        MainWindow.resize(325, 386)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.frame_2 = QtWidgets.QFrame(self.centralwidget)
@@ -26,21 +26,16 @@ class Ui_MainWindow(object):
         self.graphicsView.setGeometry(QtCore.QRect(20, 0, 256, 71))
         self.graphicsView.setObjectName("graphicsView")
         self.aceptar = QtWidgets.QPushButton(self.centralwidget)
-        self.aceptar.setGeometry(QtCore.QRect(100, 250, 131, 31))
+        self.aceptar.setGeometry(QtCore.QRect(100, 310, 131, 31))
         self.aceptar.setObjectName("aceptar")
         self.frame_3 = QtWidgets.QFrame(self.centralwidget)
-        self.frame_3.setGeometry(QtCore.QRect(10, 100, 301, 131))
+        self.frame_3.setGeometry(QtCore.QRect(10, 90, 301, 211))
         self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_3.setObjectName("frame_3")
-        self.label_2 = QtWidgets.QLabel(self.frame_3)
-        self.label_2.setGeometry(QtCore.QRect(20, 10, 261, 21))
-        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_2.setObjectName("label_2")
-        self.label = QtWidgets.QLabel(self.frame_3)
-        self.label.setGeometry(QtCore.QRect(20, 30, 261, 20))
-        self.label.setAlignment(QtCore.Qt.AlignCenter)
-        self.label.setObjectName("label")
+        self.graphicsView_2 = QtWidgets.QGraphicsView(self.frame_3)
+        self.graphicsView_2.setGeometry(QtCore.QRect(20, 10, 256, 192))
+        self.graphicsView_2.setObjectName("graphicsView_2")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 325, 21))
@@ -57,8 +52,6 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.aceptar.setText(_translate("MainWindow", "Aceptar"))
-        self.label_2.setText(_translate("MainWindow", "SUNLIFE "))
-        self.label.setText(_translate("MainWindow", "Autonomia y Seguridad Energética"))
 
 
 if __name__ == "__main__":
