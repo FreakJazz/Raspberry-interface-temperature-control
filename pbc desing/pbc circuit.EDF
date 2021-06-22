@@ -6,8 +6,8 @@
  (resolution mm 100000)
  (unit mm)
  (structure
-  (boundary (rect pcb -74.46997 -42.17160 27.02700 40.72700))
-  (boundary (path signal 0.20320 -67.70000 -38.10000 26.10000 -38.10000 26.10000 40.10000
+  (boundary (rect pcb -74.46997 -42.17160 28.00160 40.72700))
+  (boundary (path signal 0.20320 -67.70000 -38.10000 27.90000 -38.10000 27.90000 40.10000
    -67.70000 40.10000 -67.70000 -38.10000))
   (flip_style mirror_first)
   (layer TOP (type signal) (direction off))
@@ -69,13 +69,13 @@
   (component RES40_R15 (place R15 -48.50000 -16.30000 front 90))
   (component RES40_R16 (place R16 -45.00000 -16.20000 front 90))
   (component RES40_R17 (place R17 -52.30000 -6.00000 front -90))
-  (component RES40_R23 (place R23 -48.40000 -29.90000 front 90))
-  (component RES40_R24 (place R24 -44.80000 -29.70000 front 90))
+  (component RES40_R23 (place R23 -44.20000 -29.80000 front 90))
+  (component RES40_R24 (place R24 -48.10000 -30.00000 front 90))
   (component RES40_R25 (place R25 -52.30000 -19.80000 front -90))
-  (component RES40_R26 (place R26 -37.13353 -26.80000 front 0))
-  (component RES40_R27 (place R27 -8.97102 -16.37898 front 180))
-  (component RES40_R28 (place R28 -26.43353 -23.20000 front 180))
-  (component RES40_R29 (place R29 -19.07102 -13.27898 front 0))
+  (component RES40_R26 (place R26 -20.30000 -22.03353 front 90))
+  (component RES40_R27 (place R27 -12.37898 -21.92898 front 90))
+  (component RES40_R28 (place R28 -17.60000 -11.73353 front 270))
+  (component RES40_R29 (place R29 -9.27898 -11.82898 front 270))
   (component RES40_R4 (place R4 -35.80000 37.80000 front 270))
   (component RES40_R5 (place R5 -29.50000 37.70000 front -90))
   (component RES40_R6 (place R6 -32.20000 27.60000 front -270))
@@ -84,10 +84,10 @@
   (component RES40_R12 (place R12 -35.80000 11.73500 front 90))
   (component RES40_R13 (place R13 -23.10000 22.63500 front -90))
   (component RES40_R14 (place R14 -31.80000 21.93500 front -90))
-  (component RES40_R18 (place R18 -29.78000 -7.27251 front 270))
-  (component RES40_R19 (place R19 -35.22000 -17.42749 front 90))
-  (component RES40_R20 (place R20 -26.00000 -17.26647 front 90))
-  (component RES40_R21 (place R21 -38.28000 -17.47251 front 90))
+  (component RES40_R18 (place R18 -27.02000 -21.22749 front 90))
+  (component RES40_R19 (place R19 -35.42000 -16.02749 front 90))
+  (component RES40_R20 (place R20 -30.00000 -11.23353 front 270))
+  (component RES40_R21 (place R21 -38.48000 -16.07251 front 90))
   (component DIL06_U2 (place U2 1.78000 33.80000 front 270))
   (component "CONN-SIL6_J7" (place J7 22.60000 -15.06000 front 90))
   (component RES40_R22 (place R22 -4.12000 23.50000 front 90))
@@ -100,7 +100,7 @@
   (component RES40_R33 (place R33 -0.76000 -9.60000 front 90))
   (component RES40_R34 (place R34 17.24000 3.30000 front -90))
   (component RES40_R35 (place R35 -1.06000 -24.20000 front 90))
-  (component RES40_R36 (place R36 17.64000 -23.50000 front 90))
+  (component RES40_R36 (place R36 16.94000 -23.40000 front 90))
  )
  (library
   (image "TBLOCK-I2_J1" (side front)
@@ -537,7 +537,7 @@
      $VIA#0_SIGNAL
     )
    )
-   (pins R1-0 R3-1 R5-0)
+   (pins R1-0 R3-1 R4-0)
   )
   (net "#00010"
    (circuit
@@ -546,7 +546,7 @@
      $VIA#0_SIGNAL
     )
    )
-   (pins J2-0 R2-0 R4-0)
+   (pins J2-0 R2-0 R5-0)
   )
   (net "#00013"
    (circuit
@@ -582,7 +582,7 @@
      $VIA#0_SIGNAL
     )
    )
-   (pins R10-1 R8-0 R12-0)
+   (pins R10-1 R11-0 R8-0)
   )
   (net "#00020"
    (circuit
@@ -591,7 +591,7 @@
      $VIA#0_SIGNAL
     )
    )
-   (pins J4-0 R9-0 R11-0)
+   (pins J4-0 R9-0 R12-0)
   )
   (net "#00023"
    (circuit
@@ -627,7 +627,7 @@
      $VIA#0_SIGNAL
     )
    )
-   (pins R15-0 R17-1 R19-0)
+   (pins R15-0 R17-1 R18-0)
   )
   (net "#00030"
    (circuit
@@ -636,7 +636,7 @@
      $VIA#0_SIGNAL
     )
    )
-   (pins J6-0 R16-0 R18-0)
+   (pins J6-0 R16-0 R19-0)
   )
   (net "#00033"
    (circuit

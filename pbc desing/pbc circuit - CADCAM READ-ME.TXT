@@ -4,7 +4,7 @@ LABCENTER PROTEUS TOOL INFORMATION FILE
 In case of difficulty, please e-mail support@labcenter.co.uk
 
 Tool set up for Proteus layout 'pbc circuit.pdsprj'.
-CADCAM generated at 17:58:25 on martes, 15 de junio de 2021.
+CADCAM generated at 12:28:13 on martes, 22 de junio de 2021.
 
 File List
 ---------
