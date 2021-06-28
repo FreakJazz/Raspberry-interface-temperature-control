@@ -20,22 +20,28 @@
 
 [TOC]
 
-#Library Installation
-In order to use the [Raspberry PI zero W](https://www.raspberrypi.org/products/raspberry-pi-zero-w/ "Raspberry PI zero W"), we need to install the follw library
+# Library Installation
+
+In order to use the [Raspberry PI zero W](https://www.raspberrypi.org/products/raspberry-pi-zero-w/ "Raspberry PI zero W"), we need to install the follw library.
+
 `pip install RPI.GPIO`
 
-Next for the interface in python we are going to use the [PYQT5](https://www.riverbankcomputing.com/static/Docs/PyQt5/ "PYQT5")
+Next for the interface in python we are going to use the [PYQT5](https://www.riverbankcomputing.com/static/Docs/PyQt5/ "PYQT5").
+
 `pip intall PyQt5`
 
-For the temperature control we need to install [PID library](https://pypi.org/project/pid/ "PID library")
+For the temperature control we need to install [PID library](https://pypi.org/project/pid/ "PID library").
+
 `pip install pid`
 
-in order to get stadistics for the temperature in a period of time we are gorin to use [Pandas](https://pandas.pydata.org/ "Pandas") and [matplot library](https://matplotlib.org/ "matplot library")
+In order to get stadistics for the temperature in a period of time we are gorin to use [Pandas](https://pandas.pydata.org/ "Pandas") and [matplot library](https://matplotlib.org/ "matplot library").
+
 `pip install pandas`
 `pip install matplotlib-inline`
 
-#Programation
-In the interface, two access codes were configured to be able to vary the setpoint of the temperature in the tanks, there is also a window where you can see a temperature history for system monitoring and generate statistics
+# Programation
+
+In the interface, two access codes were configured to be able to vary the setpoint of the temperature in the tanks, there is also a window where you can see a temperature history for system monitoring and generate statistics.
 
 ```python
 def fn_configuration_temp(self):
@@ -54,7 +60,8 @@ def fn_configuration_temp(self):
         self.about_frame.show()
 ```
 
-#Interface
+# Interface
+
 The interface is very intuitive and controls the temperature of 4 tanks through the NTC 20k sensors.
 
 # PBC Desing
