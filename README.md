@@ -19,6 +19,7 @@
 [TOCM]
 
 [TOC]
+
 #Library Installation
 In order to use the [Raspberry PI zero W](https://www.raspberrypi.org/products/raspberry-pi-zero-w/ "Raspberry PI zero W"), we need to install the follw library
 `pip install RPI.GPIO`
@@ -36,7 +37,8 @@ in order to get stadistics for the temperature in a period of time we are gorin 
 #Programation
 In the interface, two access codes were configured to be able to vary the setpoint of the temperature in the tanks, there is also a window where you can see a temperature history for system monitoring and generate statistics
 
-`def fn_configuration_temp(self):
+```python
+def fn_configuration_temp(self):
         self.mode_password = False
         self.password_frame = Admin(None)
         self.password_frame.show()
@@ -49,7 +51,8 @@ In the interface, two access codes were configured to be able to vary the setpoi
         self.estadisticas_frame.show()
     def fn_about(self):
         self.about_frame = About(None)
-        self.about_frame.show()`
+        self.about_frame.show()
+```
 
 #Interface
 The interface is very intuitive and controls the temperature of 4 tanks through the NTC 20k sensors.
