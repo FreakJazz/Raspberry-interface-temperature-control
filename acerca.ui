@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>325</width>
-    <height>314</height>
+    <width>624</width>
+    <height>581</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="aceptar">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>230</y>
+      <x>280</x>
+      <y>500</y>
       <width>131</width>
       <height>31</height>
      </rect>
@@ -32,8 +32,8 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>301</width>
-      <height>211</height>
+      <width>601</width>
+      <height>461</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -42,14 +42,17 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QGraphicsView" name="graphic">
+    <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>30</x>
-       <y>10</y>
-       <width>256</width>
-       <height>192</height>
+       <x>10</x>
+       <y>20</y>
+       <width>571</width>
+       <height>411</height>
       </rect>
+     </property>
+     <property name="text">
+      <string/>
      </property>
     </widget>
    </widget>
@@ -59,7 +62,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>325</width>
+     <width>624</width>
      <height>21</height>
     </rect>
    </property>

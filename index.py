@@ -4,6 +4,7 @@ import pandas as pd
 from datetime import datetime
 import PyQt5
 from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog, QFileDialog
+from PyQt5.QtGui import QPixmap
 from interface import Ui_ControlTanques
 from PASSWORD import Ui_ClaveAdmin
 from estadisticas import Ui_Estadisticas
@@ -214,7 +215,10 @@ class About(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         # uic.loadUi("acerca.ui", self)
         self.setWindowTitle("Acerca de nosotros")
-
+        pixmap = QPixmap('images/SUNLIFE.png')
+        self.label.setPixmap(pixmap)
+        #self.resize(pixmap.width(5),pixmap.height(5))
+        self.show()
 
 if __name__ == "__main__": 
    dirname = os.path.dirname(PyQt5.__file__)
