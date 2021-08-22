@@ -9,6 +9,8 @@ from interface import Ui_ControlTanques
 from PASSWORD import Ui_ClaveAdmin
 from estadisticas import Ui_Estadisticas
 from acerca import Ui_MainWindow
+from dotenv import load_dotenv
+load_dotenv()
 
 # Application Class
 class Application(QMainWindow, Ui_ControlTanques):
@@ -55,7 +57,6 @@ class Application(QMainWindow, Ui_ControlTanques):
         self.mode_password = False
         self.password_frame = Admin(None)
         self.password_frame.show()
-
         
     def fn_admin(self):    
         self.mode_password = True
@@ -167,11 +168,11 @@ class Admin(QMainWindow, Ui_ClaveAdmin):
     def fn_ok(self):
         self.password =  self.lineEdit.text()
         num = int(self.lb_try_number.text())
-        if self.password == "523478" and Application.mode_password == True:
+        if self.password == FIRSTPASSWORD and Application.mode_password == True:
             self.lb_state.setText("CORRECTO")
             Application.bt_act_des.setEnabled(True)
             self.close()
-        elif self.password == "984562" and Application.mode_password == False:
+        elif self.password == SECONDPASSWORD and Application.mode_password == False:
             self.lb_state.setText("CORRECTO")
             Application.dial_1.setEnabled(True)
             Application.dial_2.setEnabled(True)
@@ -217,8 +218,12 @@ class About(QMainWindow, Ui_MainWindow):
         self.setWindowTitle("Acerca de nosotros")
         pixmap = QPixmap('images/SUNLIFE.png')
         self.label.setPixmap(pixmap)
-        #self.resize(pixmap.width(5),pixmap.height(5))
         self.show()
+        self.aceptar.clicked.connect(self.fn_aceptar)
+
+    def fn_aceptar(self):
+        self.close()
+
 
 if __name__ == "__main__": 
    dirname = os.path.dirname(PyQt5.__file__)
