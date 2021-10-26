@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>624</width>
-    <height>581</height>
+    <width>336</width>
+    <height>394</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="aceptar">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>500</y>
+      <x>100</x>
+      <y>300</y>
       <width>131</width>
       <height>31</height>
      </rect>
@@ -32,8 +32,8 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>601</width>
-      <height>461</height>
+      <width>311</width>
+      <height>281</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -47,8 +47,8 @@
       <rect>
        <x>10</x>
        <y>20</y>
-       <width>571</width>
-       <height>411</height>
+       <width>271</width>
+       <height>251</height>
       </rect>
      </property>
      <property name="text">
@@ -62,7 +62,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>624</width>
+     <width>336</width>
      <height>21</height>
     </rect>
    </property>

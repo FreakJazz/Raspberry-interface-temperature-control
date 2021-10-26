@@ -61,7 +61,7 @@ def fn_configuration_temp(self):
 
 The interface is very intuitive and controls the temperature of 4 tanks through the NTC 20k sensors.
 
-# PBC Desing
+# PCB Desing
 
 #Results
 

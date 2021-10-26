@@ -9,9 +9,9 @@ from interface import Ui_ControlTanques
 from PASSWORD import Ui_ClaveAdmin
 from estadisticas import Ui_Estadisticas
 from acerca import Ui_MainWindow
-from dotenv import load_dotenv
+from dotenv import load_dotenv, dotenv_values
 load_dotenv()
-
+config = dotenv_values(".env")
 # Application Class
 class Application(QMainWindow, Ui_ControlTanques):
     #Método constructor de la clase
@@ -168,11 +168,12 @@ class Admin(QMainWindow, Ui_ClaveAdmin):
     def fn_ok(self):
         self.password =  self.lineEdit.text()
         num = int(self.lb_try_number.text())
-        if self.password == FIRSTPASSWORD and Application.mode_password == True:
+
+        if self.password == os.getenv('FIRSTPASSWORD') and Application.mode_password == True:
             self.lb_state.setText("CORRECTO")
             Application.bt_act_des.setEnabled(True)
             self.close()
-        elif self.password == SECONDPASSWORD and Application.mode_password == False:
+        elif self.password == os.getenv('SECONDPASSWORD') and Application.mode_password == False:
             self.lb_state.setText("CORRECTO")
             Application.dial_1.setEnabled(True)
             Application.dial_2.setEnabled(True)
@@ -181,6 +182,7 @@ class Admin(QMainWindow, Ui_ClaveAdmin):
             if num <= 1:
                self.lb_state.setText("ERROR") 
                self.lb_try_number.setText(str(num+1))
+               self.lineEdit.clear()
             else: 
                 self.bt_1.setEnabled(False)
                 self.bt_2.setEnabled(False)
