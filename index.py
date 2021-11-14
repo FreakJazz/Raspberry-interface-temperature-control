@@ -1,5 +1,13 @@
+#  Connections are:
+#     CLK => 11  
+#     DOUT => 09 (chip's data out, RPi's MISO)
+#     DIN => 10  (chip's data in, RPi's MOSI)
+#     CS => 08
+
+
 import sys
 import os
+import RPi.GPIO as GPIO
 # import pandas as pd
 from datetime import datetime
 import PyQt5
@@ -12,6 +20,12 @@ from acerca import Ui_MainWindow
 from dotenv import load_dotenv, dotenv_values
 load_dotenv()
 config = dotenv_values(".env")
+
+CLK = 11
+MISO = 9
+MOSI = 10
+CS = 8
+
 # Application Class
 class Application(QMainWindow, Ui_ControlTanques):
     #Método constructor de la clase
