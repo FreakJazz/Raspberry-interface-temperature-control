@@ -1,6 +1,6 @@
 import sys
 import os
-import pandas as pd
+# import pandas as pd
 from datetime import datetime
 import PyQt5
 from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog, QFileDialog
