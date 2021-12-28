@@ -7,6 +7,8 @@
 
 import sys
 import os
+import spidev
+import time
 import RPi.GPIO as GPIO
 # import pandas as pd
 from datetime import datetime
@@ -20,6 +22,10 @@ from acerca import Ui_MainWindow
 from dotenv import load_dotenv, dotenv_values
 load_dotenv()
 config = dotenv_values(".env")
+
+spi = spidev.SpiDev()
+spi.open(0, 0)
+spi.max_speed_hz = 7629
 
 CLK = 11
 MISO = 9
@@ -84,6 +90,12 @@ class Application(QMainWindow, Ui_ControlTanques):
     def fn_about(self):
         self.about_frame = About(None)
         self.about_frame.show()
+
+    # Split an integer input into a two byte array to send via SPI
+    def write_pot(input):
+        msb = input >> 8
+        lsb = input & 0xFF
+        spi.xfer([msb, lsb])
 
 class Admin(QMainWindow, Ui_ClaveAdmin):
     
@@ -242,9 +254,13 @@ class About(QMainWindow, Ui_MainWindow):
 
 
 if __name__ == "__main__": 
-   dirname = os.path.dirname(PyQt5.__file__)
-   plugin_path = os.path.join(dirname, 'plugins', 'platforms')
-   app = QApplication(sys.argv)        #App Inicialization
-   Application = Application()        #Object Class
-   Application.show()                 #Show Window
-   app.exec_()                         #Execute Aplication
+    dirname = os.path.dirname(PyQt5.__file__)
+    plugin_path = os.path.join(dirname, 'plugins', 'platforms')
+    app = QApplication(sys.argv)        #App Inicialization
+    Application = Application()        #Object Class
+    Application.show()                 #Show Window
+    Application.write_pot(0x1FF)
+    time.sleep(0.5)
+    Application.write_pot(0x00)
+    time.sleep(0.5)
+    app.exec_()                         #Execute Aplication
