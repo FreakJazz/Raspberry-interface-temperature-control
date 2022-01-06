@@ -8,9 +8,9 @@
 import sys
 
 import os
-import spidev
+# import spidev
 import time
-import RPi.GPIO as GPIO
+# import RPi.GPIO as GPIO
 # import pandas as pd
 from datetime import datetime
 import PyQt5
@@ -24,14 +24,14 @@ from dotenv import load_dotenv, dotenv_values
 load_dotenv()
 config = dotenv_values(".env")
 
-spi = spidev.SpiDev()
-spi.open(0, 0)
-spi.max_speed_hz = 7629
+# spi = spidev.SpiDev()
+# spi.open(0, 0)
+# spi.max_speed_hz = 7629
 
-CLK = 11
-MISO = 9
-MOSI = 10
-CS = 8
+#CLK = 11
+#MISO = 9
+#MOSI = 10
+#CS = 8
 
 # Application Class
 class Application(QMainWindow, Ui_ControlTanques):
@@ -260,8 +260,6 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)        #App Inicialization
     Application = Application()        #Object Class
     Application.show()                 #Show Window
-    Application.write_pot(0x1FF)
-    time.sleep(0.5)
-    Application.write_pot(0x00)
-    time.sleep(0.5)
+    
+    
     app.exec_()                         #Execute Aplication
