@@ -92,12 +92,6 @@ class Application(QMainWindow, Ui_ControlTanques):
         self.about_frame = About(None)
         self.about_frame.show()
 
-    # Split an integer input into a two byte array to send via SPI
-    def write_pot(input):
-        msb = input >> 8
-        lsb = input & 0xFF
-        spi.xfer([msb, lsb])
-
 class Admin(QMainWindow, Ui_ClaveAdmin):
     
     def __init__(self, parent= None):
@@ -261,5 +255,5 @@ if __name__ == "__main__":
     Application = Application()        #Object Class
     Application.show()                 #Show Window
     
-    
+
     app.exec_()                         #Execute Aplication
