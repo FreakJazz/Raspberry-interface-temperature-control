@@ -16,6 +16,7 @@ from datetime import datetime
 import PyQt5
 from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog, QFileDialog
 from PyQt5.QtGui import QPixmap
+from PyQt5.QtCore import QTime, QTimer, QDateTime, QDate
 from interface import Ui_ControlTanques
 from PASSWORD import Ui_ClaveAdmin
 from estadisticas import Ui_Estadisticas
@@ -53,7 +54,6 @@ class Application(QMainWindow, Ui_ControlTanques):
         #Agree new item
         self.bt_act_des.clicked.connect(self.fn_configuration_temp)
         self.actionAdmin.triggered.connect(self.fn_admin)
-        self.actionEstadisticas.triggered.connect(self.fn_estadisticas)
         self.actionAcerca.triggered.connect(self.fn_about)
         self.dial_1.setMinimum(35)
         self.dial_1.setMaximum(65)
@@ -66,9 +66,23 @@ class Application(QMainWindow, Ui_ControlTanques):
         self.lcd_temp_set_1.display(50)
         self.lcd_temp_set_2.display(52)
         self.mode_block = False
+        timer = QTimer(self)
+        timer.timeout.connect(self.showTime)
+        timer.start(1000) # update every second
+        self.showTime()
         # self.actionSelecci_n.triggered.connect(self.fn_select)
         # self.actionSalirr.triggered.connect(self.fn_exit)
         # self.actionAcerca_de_Nosotros.triggered.connect(self.fn_about)
+
+    def showTime(self):
+        currentTime = QTime.currentTime()
+        displayTxt = currentTime.toString('hh:mm:ss')
+        print(displayTxt)
+        date = str(self.now.strftime("%y/%m/%d"))
+        print(date)
+        self.lb_fecha.setText(date)
+        self.lb_hora.setText(displayTxt)
+    
     def updateLCD_set_1(self, event):
         self.lcd_temp_set_1.display(event)
 
@@ -76,7 +90,6 @@ class Application(QMainWindow, Ui_ControlTanques):
         self.lcd_temp_set_2.display(event)
 
     def fn_configuration_temp(self):
-    
         self.mode_password = False
         self.password_frame = Admin(None)
         self.password_frame.show()
@@ -85,10 +98,6 @@ class Application(QMainWindow, Ui_ControlTanques):
         self.mode_password = True
         self.password_frame = Admin(None)
         self.password_frame.show()
-
-    def fn_estadisticas(self):
-        self.estadisticas_frame = Estadisticas(None)
-        self.estadisticas_frame.show()
 
     def fn_about(self):
         self.about_frame = About(None)
@@ -231,17 +240,6 @@ class Admin(QMainWindow, Ui_ClaveAdmin):
                 self.bt_ok.setEnabled(False)
                 self.bt_borrar.setEnabled(False)
     
-
-class Estadisticas(QMainWindow, Ui_Estadisticas):        
-    def __init__(self, parent= None):
-        #QMainWindow Start
-        super().__init__()
-        QMainWindow.__init__(self,parent)
-        #Charge MainWindow 
-        self.setupUi(self)
-        # uic.loadUi("acerca.ui", self)
-        self.setWindowTitle("Estadisticas")
-
     
 class About(QMainWindow, Ui_MainWindow):   
     def __init__(self, parent= None):
