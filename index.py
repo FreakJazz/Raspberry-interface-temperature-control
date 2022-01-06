@@ -63,6 +63,8 @@ class Application(QMainWindow, Ui_ControlTanques):
         self.dial_2.setValue(40)
         self.dial_1.valueChanged.connect(self.updateLCD_set_1)
         self.dial_2.valueChanged.connect(self.updateLCD_set_2)
+        self.lcd_temp_set_1.display(50)
+        self.lcd_temp_set_2.display(52)
         
         # self.actionSelecci_n.triggered.connect(self.fn_select)
         # self.actionSalirr.triggered.connect(self.fn_exit)
@@ -115,6 +117,8 @@ class Admin(QMainWindow, Ui_ClaveAdmin):
         self.bt_clear.clicked.connect(self.fn_clear)
         self.bt_ok.clicked.connect(self.fn_ok)
         self.bt_borrar.clicked.connect(self.fn_borrar)
+        self.bt_block.clicked.connect(self.fn_block)
+        
     
     def char_len(self,password, char):
         lenght = len(password)
@@ -193,11 +197,15 @@ class Admin(QMainWindow, Ui_ClaveAdmin):
         if self.password == os.getenv('FIRSTPASSWORD') and Application.mode_password == True:
             self.lb_state.setText("CORRECTO")
             Application.bt_act_des.setEnabled(True)
+            self.bt_block.setEnabled(False)
             self.close()
         elif self.password == os.getenv('SECONDPASSWORD') and Application.mode_password == False:
             self.lb_state.setText("CORRECTO")
             Application.dial_1.setEnabled(True)
-            Application.dial_2.setEnabled(True)
+            Application.dial_2.setEnabled(True) 
+            self.bt_block.setEnabled(True)
+            self.bt_ok.setEnabled(False)
+            self.bt_block.setEnabled(False)
             self.close()
         else:
             if num <= 1:
@@ -218,6 +226,15 @@ class Admin(QMainWindow, Ui_ClaveAdmin):
                 self.bt_clear.setEnabled(False)
                 self.bt_ok.setEnabled(False)
                 self.bt_borrar.setEnabled(False)
+    
+    def fn_block(self):
+
+        if self.password == os.getenv('THIRDPASSWORD'):
+            self.lb_state.setText("CORRECTO")
+            Application.bt_act_des.setEnabled(True)
+            self.bt_ok.setEnabled(True)
+            self.bt_block.setEnabled(False)
+            self.close()
 
 class Estadisticas(QMainWindow, Ui_Estadisticas):        
     def __init__(self, parent= None):
@@ -248,12 +265,17 @@ class About(QMainWindow, Ui_MainWindow):
         self.close()
 
 
-if __name__ == "__main__": 
+while True: 
     dirname = os.path.dirname(PyQt5.__file__)
     plugin_path = os.path.join(dirname, 'plugins', 'platforms')
     app = QApplication(sys.argv)        #App Inicialization
     Application = Application()        #Object Class
     Application.show()                 #Show Window
+    now = datetime.now()
+    time = str(now.strftime("%H:%M:%S"))
+    date = str(now.strftime("%y/%m/%d"))
+    Application.lb_hora.setText(time)
+    Application.lb_fecha.setText(date)
     
 
     app.exec_()                         #Execute Aplication
