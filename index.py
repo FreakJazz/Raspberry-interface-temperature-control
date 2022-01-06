@@ -57,15 +57,15 @@ class Application(QMainWindow, Ui_ControlTanques):
         self.actionAcerca.triggered.connect(self.fn_about)
         self.dial_1.setMinimum(35)
         self.dial_1.setMaximum(65)
-        self.dial_1.setValue(40)
+        self.dial_1.setValue(50)
         self.dial_2.setMinimum(35)
         self.dial_2.setMaximum(65)
-        self.dial_2.setValue(40)
+        self.dial_2.setValue(52)
         self.dial_1.valueChanged.connect(self.updateLCD_set_1)
         self.dial_2.valueChanged.connect(self.updateLCD_set_2)
         self.lcd_temp_set_1.display(50)
         self.lcd_temp_set_2.display(52)
-        
+        self.mode_block = False
         # self.actionSelecci_n.triggered.connect(self.fn_select)
         # self.actionSalirr.triggered.connect(self.fn_exit)
         # self.actionAcerca_de_Nosotros.triggered.connect(self.fn_about)
@@ -117,7 +117,6 @@ class Admin(QMainWindow, Ui_ClaveAdmin):
         self.bt_clear.clicked.connect(self.fn_clear)
         self.bt_ok.clicked.connect(self.fn_ok)
         self.bt_borrar.clicked.connect(self.fn_borrar)
-        self.bt_block.clicked.connect(self.fn_block)
         
     
     def char_len(self,password, char):
@@ -197,15 +196,20 @@ class Admin(QMainWindow, Ui_ClaveAdmin):
         if self.password == os.getenv('FIRSTPASSWORD') and Application.mode_password == True:
             self.lb_state.setText("CORRECTO")
             Application.bt_act_des.setEnabled(True)
-            self.bt_block.setEnabled(False)
+        
             self.close()
-        elif self.password == os.getenv('SECONDPASSWORD') and Application.mode_password == False:
+        elif self.password == os.getenv('SECONDPASSWORD') and Application.mode_password == False and Application.mode_block == False:
             self.lb_state.setText("CORRECTO")
             Application.dial_1.setEnabled(True)
             Application.dial_2.setEnabled(True) 
-            self.bt_block.setEnabled(True)
             self.bt_ok.setEnabled(False)
-            self.bt_block.setEnabled(False)
+            Application.mode_block = True
+            self.close()
+        elif self.password == os.getenv('THIRDPASSWORD') and Application.mode_password == False and Application.mode_block == True:
+            Application.dial_1.setEnabled(False)
+            Application.dial_2.setEnabled(False) 
+            Application.bt_act_des.setEnabled(False)
+            Application.mode_block = False
             self.close()
         else:
             if num <= 1:
@@ -227,14 +231,6 @@ class Admin(QMainWindow, Ui_ClaveAdmin):
                 self.bt_ok.setEnabled(False)
                 self.bt_borrar.setEnabled(False)
     
-    def fn_block(self):
-
-        if self.password == os.getenv('THIRDPASSWORD'):
-            self.lb_state.setText("CORRECTO")
-            Application.bt_act_des.setEnabled(True)
-            self.bt_ok.setEnabled(True)
-            self.bt_block.setEnabled(False)
-            self.close()
 
 class Estadisticas(QMainWindow, Ui_Estadisticas):        
     def __init__(self, parent= None):
