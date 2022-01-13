@@ -3,10 +3,7 @@
 #     DOUT => 09 (chip's data out, RPi's MISO)
 #     DIN => 10  (chip's data in, RPi's MOSI)
 #     CS => 08
-
-
 import sys
-
 import os
 # import spidev
 import time
@@ -28,7 +25,6 @@ config = dotenv_values(".env")
 # spi = spidev.SpiDev()
 # spi.open(0, 0)
 # spi.max_speed_hz = 7629
-
 #CLK = 11
 #MISO = 9
 #MOSI = 10
@@ -65,6 +61,9 @@ class Application(QMainWindow, Ui_ControlTanques):
         self.dial_2.valueChanged.connect(self.updateLCD_set_2)
         self.lcd_temp_set_1.display(50)
         self.lcd_temp_set_2.display(52)
+        self.sb_delta.setMinimum(0)
+        self.sb_delta.setMaximum(8)
+        self.sb_delta.setValue(4)
         self.mode_block = False
         timer = QTimer(self)
         timer.timeout.connect(self.showTime)
@@ -211,12 +210,14 @@ class Admin(QMainWindow, Ui_ClaveAdmin):
             self.lb_state.setText("CORRECTO")
             Application.dial_1.setEnabled(True)
             Application.dial_2.setEnabled(True) 
+            Application.lb_des_act.setText("Activado")
             self.bt_ok.setEnabled(False)
             Application.mode_block = True
             self.close()
         elif self.password == os.getenv('THIRDPASSWORD') and Application.mode_password == False and Application.mode_block == True:
             Application.dial_1.setEnabled(False)
             Application.dial_2.setEnabled(False) 
+            Application.lb_des_act.setText("Desactivado")
             Application.bt_act_des.setEnabled(False)
             Application.mode_block = False
             self.close()
