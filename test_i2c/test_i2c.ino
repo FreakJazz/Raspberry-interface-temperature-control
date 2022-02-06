@@ -15,7 +15,7 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  
+  Serial.println(LDR_pin);
 delay(1000);
 }
 void sendData(){
@@ -24,4 +24,5 @@ void sendData(){
   LDR_value=map(LDR_value,0,1023,0,255);
   response[0]=(byte)LDR_value;
   Wire.write(response,2); // return data to PI
-}
+  Serial.println("entro");
+} 

@@ -13,7 +13,7 @@ class AppDemo(QWidget):
         fnt = QFont('Open Sans', 120, QFont.Bold)
 
         self.lbl = QLabel()
-        self.lbl.setAlignment(Qt.AlignCenter)
+        self.lbl.setAlignment(Qt.AlignCenter)   
         self.lbl.setFont(fnt)
         layout.addWidget(self.lbl)
 

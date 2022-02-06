@@ -1,37 +1,35 @@
+#include <Wire.h>  // Library which contains functions to have I2C Communication
+#define SLAVE_ADDRESS 0x40 // Define the I2C address to Communicate to Uno
 
-int val1_2 = A3;     // potentiometer wiper (middle terminal) connected to analog pin 3
-int val3_4 = A4;     // outside leads to ground and +5V
-float temp1_2 = 0;  // variable to store the value read
-float temp3_4 = 0;
-int histeresis; // Banda de histeresis
-int histe = 3;      // Valor final histeresis
-float umbralbajo=0; // Umbral bajo de histeresis 
-float umbralalto=0; // Umbral alto de histeresis
-
+byte response[2]; // this data is sent to PI
+volatile short val1_2, val3_4; // Global Declaration
+const int pval1_2 =A3; //pin to which LDR is connected A0 is analog A0 pin  
+const int pval3_4 =A2; //pin to which LDR is connected A0 is analog A0 pin  
 
 void setup() {
-  Serial.begin(9600);           //  setup serial
-  pinMode(6, OUTPUT);
-  pinMode(7,OUTPUT);
-  umbralbajo=setpoint-histe;
-  umbralalto=setpoint+histe;
+  // put your setup code here, to run once:
+
+  Serial.begin(9600);
+  Wire.begin(SLAVE_ADDRESS); // this will begin I2C Connection with 0x40 address
+  Wire.onRequest(sendData); // sendData is funtion called when Pi requests data
+  pinMode(pval1_2,INPUT);
+  pinMode(pval3_4,INPUT);
 }
-
+void sendData(){
+  val1_2=analogRead(pval1_2);
+  // Arduino returns 10bit data but we need to convert it to 8bit 
+  val1_2=map(val1_2,0,1023,0,255);
+  response[0]=(byte)val1_2;
+  Wire.write(response,2); // return data to PI
+  /*val3_4=analogRead(pval3_4);
+  // Arduino returns 10bit data but we need to convert it to 8bit 
+  val3_4=map(val3_4,0,1023,0,255);
+  response[0]=(byte)val3_4;
+  Wire.write(response,2); // return data to PI*/
+  Serial.println("ok");
+}
 void loop() {
-  temp1_2 = analogRead(val1_2);  // read the input pin
-  temp1_2 = (5*temp1_2)/1023;
-  temp1_2 = 23.07*temp1_2-18.46;
-  // tpt100=8*vpt100+20;
-
-  if temp
   
-  
-  Serial.println(temp1_2);          // debug value
-  
-  temp3_4 = analogRead(val3_4);  // read the input pin
-  temp3_4 = (5*temp3_4)/1023;
-  temp3_4 = 23.07*temp3_4-18.46;
-  Serial.println(temp3_4);          // debug value
-  delay(1000);
+  delay(30000);
 }
 
