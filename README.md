@@ -64,6 +64,10 @@ def fn_configuration_temp(self):
 
 The interface is very intuitive and controls the temperature of 4 tanks through the NTC 20k sensors.
 
+![PRINCIPAL INTERFACE](https://github.com/FreakJazz/Raspberry-interface-temperature-control/blob/main/images/Interface.PNG)
+![PASSWORD INTERFACE](https://github.com/FreakJazz/Raspberry-interface-temperature-control/blob/main/images/password.PNG)
+![PRINCIPAL ESTADISTICS](https://github.com/FreakJazz/Raspberry-interface-temperature-control/blob/main/images/estadistics.PNG)
+
 # PCB Desing
 
 ![PCB DESING](https://github.com/FreakJazz/Raspberry-interface-temperature-control/blob/main/images/pbc%20desing.PNG)
@@ -88,5 +92,6 @@ Below is the temperature control installed in an electrical panel for tank contr
 
 JAZMIN RODRIGUEZ 
 
-[LINKED IN](https://www.linkedin.com/in/jazmin-rodriguez-bermeo/ "LINKED IN")
+[LINKED-IN](https://www.linkedin.com/in/jazmin-rodriguez-bermeo/ "LINKED-IN")
+
 [GITHUB](https://github.com/FreakJazz "GITHUB")
