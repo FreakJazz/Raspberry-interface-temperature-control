@@ -21,6 +21,9 @@
 
 In order to use the [Raspberry PI zero W](https://www.raspberrypi.org/products/raspberry-pi-zero-w/ "Raspberry PI zero W"), we need to install the follw library.
 
+![PCB DESING](https://github.com/FreakJazz/Raspberry-interface-temperature-control/blob/main/images/raspberrypizerow.jpg)
+
+
 `pip install RPI.GPIO`
 
 Next for the interface in python we are going to use the [PYQT5](https://www.riverbankcomputing.com/static/Docs/PyQt5/ "PYQT5").
@@ -71,6 +74,9 @@ The interface is very intuitive and controls the temperature of 4 tanks through 
 # Results
 The temperature control of 4 tanks was carried out using a Raspberry Pi Zero W and a 7' touch screen. The control was carried out using hysteresis with a temperature set point of 28° to 55° Celsius.
 
+![RASPBERRY Y PANTALLA 7'](https://github.com/FreakJazz/Raspberry-interface-temperature-control/blob/main/images/pbc%20desing%203D.PNG)
+
+
 Below is the temperature control installed in an electrical panel for tank control.
 
 ![PCB DESING 3D](https://github.com/FreakJazz/Raspberry-interface-temperature-control/blob/main/images/pbc%20desing%203D.PNG)
@@ -78,3 +84,7 @@ Below is the temperature control installed in an electrical panel for tank contr
 
 # Contributing
 
+JAZMIN RODRIGUEZ 
+
+[LINKED IN](https://www.linkedin.com/in/jazmin-rodriguez-bermeo/ "LINKED IN")
+[GITHUB](https://github.com/FreakJazz "GITHUB")
