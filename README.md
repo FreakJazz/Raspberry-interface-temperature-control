@@ -8,8 +8,6 @@
 
 # Raspberry Control Temperature Tank
 
-![](https://github.com/FreakJazz/Raspberry-interface-temperature-control/blob/main/images/Solo%20Horizontal.png)
-
 
 **Table of Contents**
 
