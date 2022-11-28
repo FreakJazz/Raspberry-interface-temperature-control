@@ -8,6 +8,8 @@
 
 # Raspberry Control Temperature Tank
 
+![](https://github.com/FreakJazz/Raspberry-interface-temperature-control/blob/main/images/Solo%20Horizontal.png)
+
 
 **Table of Contents**
 
@@ -61,7 +63,18 @@ The interface is very intuitive and controls the temperature of 4 tanks through 
 
 # PCB Desing
 
-#Results
+![PCB DESING](https://github.com/FreakJazz/Raspberry-interface-temperature-control/blob/main/images/pbc%20desing.PNG)
 
-#Contributing
+![PCB DESING 3D](https://github.com/FreakJazz/Raspberry-interface-temperature-control/blob/main/images/pbc%20desing%203D.PNG)
+
+
+# Results
+The temperature control of 4 tanks was carried out using a Raspberry Pi Zero W and a 7' touch screen. The control was carried out using hysteresis with a temperature set point of 28° to 55° Celsius.
+
+Below is the temperature control installed in an electrical panel for tank control.
+
+![PCB DESING 3D](https://github.com/FreakJazz/Raspberry-interface-temperature-control/blob/main/images/pbc%20desing%203D.PNG)
+
+
+# Contributing
 
